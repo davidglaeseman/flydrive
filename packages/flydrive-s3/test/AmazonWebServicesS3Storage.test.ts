@@ -41,6 +41,17 @@ describe('S3 Driver', () => {
 		expect(content).toStrictEqual(testString);
 	});
 
+	test('create a new file with options', async () => {
+		const testHtml = '<h1>flydrive</h1>'
+		await storage.put('some-file.html', testHtml, {
+			ContentType: 'text/html',
+			ACL: 'public-read',
+		});
+
+		const { content } = await storage.get('some-file.html');
+		expect(content).toStrictEqual(testHtml);
+	});
+
 	test('create a new file from buffer', async () => {
 		await storage.put('buffer-file.txt', Buffer.from(testString, 'utf-8'));
 
