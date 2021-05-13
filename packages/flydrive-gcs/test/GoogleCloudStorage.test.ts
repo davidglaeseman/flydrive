@@ -41,7 +41,7 @@ afterEach(async () => {
 	await Promise.all([storage.delete(testFile), , storage.delete(otherFile)]);
 });
 
-describe('GCS Driver', () => {
+describe.skip('GCS Driver', () => {
 	test('copy a file', async () => {
 		await storage.copy(testFile, otherFile);
 
