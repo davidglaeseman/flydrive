@@ -272,7 +272,7 @@ This method will create a new file with the provided content.
 ```javascript
 // Supported drivers: "local", "s3", "gcs"
 
-await storage.disk('local').put('bar.txt', 'Foobar');
+await storage.disk('local').put('bar.txt', 'Foobar',{ACL:'public-read'});
 ```
 
 </details>
